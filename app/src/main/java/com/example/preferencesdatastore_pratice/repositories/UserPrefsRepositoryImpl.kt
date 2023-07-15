@@ -27,7 +27,7 @@ class UserPrefsRepositoryImpl(context: Context) : UserPrefsRepository {
         }
     }
 
-    override suspend fun getUser(): Flow<User> {
+    override fun getUser(): Flow<User> {
         return dataStore.data
             .catch { e->
                 if(e is IOException){

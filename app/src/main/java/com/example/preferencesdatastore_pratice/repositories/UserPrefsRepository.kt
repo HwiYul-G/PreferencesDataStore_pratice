@@ -7,7 +7,7 @@ interface UserPrefsRepository {
 
     suspend fun saveUser(user : User)
 
-    suspend fun getUser() : Flow<User>
+    fun getUser() : Flow<User>
 
     suspend fun deleteNameUser()
 
