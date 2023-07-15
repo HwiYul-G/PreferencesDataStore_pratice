@@ -1,6 +1,7 @@
 package com.example.preferencesdatastore_pratice.viewmodels
 
-import android.content.Context
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
@@ -10,11 +11,10 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 
-// TODO : application : Application이 아니라 임시로, context : Context를 넣어준다.
-class MainActivityViewModel(context : Context) : ViewModel(){
+class MainActivityViewModel(application : Application) : AndroidViewModel(application){
 
-    // datastore
-    private val userPrefsRepository = UserPrefsRepositoryImpl(context)
+
+    private val userPrefsRepository = UserPrefsRepositoryImpl(application)
 
 
     val getUser = userPrefsRepository.getUser().asLiveData(Dispatchers.IO)
